@@ -9,5 +9,6 @@ async function bootstrap() {
   await app.listen(PORT);
 
   logger.log(`Server running on http://localhost:${PORT}`)
+  logger.log(`GraphgQL running on http://localhost:${PORT}/graphql`)
 }
 bootstrap();
