@@ -13,7 +13,7 @@ export class EmployeeInput implements IEmployeeInput {
     area: string;
     @Field()
     status: string;
-    @Field({nullable:true})
+    @Field({nullable: true})
     active: boolean;
     @Field()
     salary: number;

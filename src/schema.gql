@@ -23,3 +23,17 @@ type Query {
   employees: [Employee!]!
   employee: Employee!
 }
+
+type Mutation {
+  createEmployee(data: EmployeeInput!): Employee!
+}
+
+input EmployeeInput {
+  name: String!
+  surname: String!
+  birth: DateTime!
+  area: String!
+  status: String!
+  active: Boolean
+  salary: Float!
+}
