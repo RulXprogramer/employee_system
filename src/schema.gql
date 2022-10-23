@@ -21,11 +21,13 @@ scalar DateTime
 
 type Query {
   employees: [Employee!]!
-  employee: Employee!
+  employee(id: ID!): Employee!
 }
 
 type Mutation {
   createEmployee(data: EmployeeInput!): Employee!
+  updateEmployee(id: ID!, data: EmployeeInput!): Employee!
+  deleteEmployee(id: ID!): Employee!
 }
 
 input EmployeeInput {
