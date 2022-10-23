@@ -4,7 +4,7 @@ import { IEmployee } from "src/interfaces/employee.interface";
 @ObjectType()
 export class Employee implements IEmployee{
     @Field(() => ID)
-    id: string;
+    _id: string;
     @Field()
     name: string;
     @Field()
