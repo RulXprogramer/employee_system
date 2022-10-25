@@ -1,3 +1,5 @@
+import { IHistory } from "./history.interface";
+
 export interface IEmployee {
     _id: string;
 	name: string;
@@ -8,7 +10,7 @@ export interface IEmployee {
     active: boolean;
 	salary: number;
 	createdAt: Date;
-	//history: [History]
+	histories: IHistory[];
 }
 
 export interface IEmployeeInput {

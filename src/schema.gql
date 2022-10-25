@@ -2,6 +2,20 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type History {
+  _id: ID!
+  employeeId: String!
+  employee: History
+  date: DateTime
+  checkIn: String!
+  checkOut: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Employee {
   _id: ID!
   name: String!
@@ -12,22 +26,20 @@ type Employee {
   active: Boolean!
   salary: Float!
   createdAt: DateTime!
+  histories: [History!]
 }
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
 
 type Query {
   employees: [Employee!]!
   employee(id: ID!): Employee!
+  history: [History!]!
 }
 
 type Mutation {
   createEmployee(data: EmployeeInput!): Employee!
   updateEmployee(id: ID!, data: EmployeeInput!): Employee!
   deleteEmployee(id: ID!): Employee!
+  createHistory(data: HistoryInput!): History!
 }
 
 input EmployeeInput {
@@ -38,4 +50,10 @@ input EmployeeInput {
   status: String!
   active: Boolean
   salary: Float!
+}
+
+input HistoryInput {
+  employeeId: String!
+  checkIn: String!
+  checkOut: String
 }

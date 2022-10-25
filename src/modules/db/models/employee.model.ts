@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import { IEmployee } from 'src/interfaces/employee.interface';
+import { IHistory } from 'src/interfaces/history.interface';
 
 export type EmployeeDocument = EmployeeModel & Document;
 
@@ -23,6 +24,8 @@ export class EmployeeModel implements IEmployee {
     salary: number;
     @Prop({default: () => new Date()})
     createdAt: Date;
+
+    histories: IHistory[];
 
 }
 
