@@ -1,6 +1,7 @@
 import { Field, ID, ObjectType } from "@nestjs/graphql";
 import { IEmployee } from "src/interfaces/employee.interface";
 import { IHistory } from "src/interfaces/history.interface";
+import { Employee } from "../employee/employee.schema";
 
 @ObjectType()
 export class History implements IHistory{
@@ -11,7 +12,7 @@ export class History implements IHistory{
     @Field()
     employeeId: string;
     
-    @Field(() => History, {nullable: true})
+    @Field(() => Employee, {nullable: true})
     employee: IEmployee;
     
     @Field({nullable: true})

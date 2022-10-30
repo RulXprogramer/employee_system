@@ -5,7 +5,7 @@
 type History {
   _id: ID!
   employeeId: String!
-  employee: History
+  employee: Employee
   date: DateTime
   checkIn: String!
   checkOut: String!
@@ -32,7 +32,7 @@ type Employee {
 type Query {
   employees: [Employee!]!
   employee(id: ID!): Employee!
-  history: [History!]!
+  histories: [History!]!
 }
 
 type Mutation {
@@ -40,6 +40,7 @@ type Mutation {
   updateEmployee(id: ID!, data: EmployeeInput!): Employee!
   deleteEmployee(id: ID!): Employee!
   createHistory(data: HistoryInput!): History!
+  updateHistory(id: ID!, data: HistoryInput!): History!
 }
 
 input EmployeeInput {
